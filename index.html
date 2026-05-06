@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <script>
+    document.documentElement.setAttribute('data-theme', 'dark');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&family=Open+Sans:wght@400;500&display=swap"rel="stylesheet">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+
+    <a href="#" class="logo">
+        <img src="./assets/images/Logo_dark.png" alt="Devfolio" width="145" height="32" class="dark">
+        <img src="./assets/images/Logo_light.png" alt="Devfolio" width="145" height="32" class="light">
+    </a>
+
+    <button class="icon-btn- theme-btn" data-theme-btn>
+        <span class="material-symbols-outlined dark" aria-hidden="true">dark_mode</span>
+        <span class="material-symbols-outlined light" aria-hidden="true">light_mode</span>
+        <div class="state-layer"></div>
+    </button>
+</header>
+
+<main>
+<article>
+
+<section class="section hero">
+<div class="container">
+
+<figure class="hero-banner img-holder" style="--width: 240; --height:240;">
+    <img src="./assets/WhatsApp Image 2025-02-25 at 12.44.22.jpeg" width="240" height="240" alt="" class="img-cover">
+</figure>
+
+<div class="hero-content">
+
+<span class="label-large section-subtitle">FullStack Developer</span>
+<h1 class="display-small">Nazareno Araya</h1>
+
+<p class="body-large section-text">
+    FullStack Web Developer 
+</p>
+
+<div class="btn-wrapper">
+
+<a href="mailto:nazarenoaraya2017@gmail.com" class="chip">
+    <span class="material-symbols-outlined">mail</span>
+    <span class="label-large">nazarenoaraya2017@gmail.com</span>
+    <div class="state-layer"></div>
+</a>
+
+<a href="tel:1123959694" class="chip">
+    <span class="material-symbols-outlined">call</span>
+    <span class="label-large">+5548991078622</span>
+    <div class="state-layer"></div>
+</a>
+
+<a href="assets/Professional Modern CV Resume (1).pdf" download class="chip">
+    <span class="material-symbols-outlined">download</span>
+    <span class="label-large">Descargar CV</span>
+    <div class="state-layer"></div>
+</a>
+
+</div>
+</div>
+</div>
+</section>
+
+<div class="article">
+<div class="about-card">
+
+<h2 class="card-title title-medium">Sobre Mi</h2>
+<p class="body-medium card-text">Un creativo Web Developer, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.</p>
+
+<ul class="about-list">
+<li class="list-item">
+    <span class="material-symbols-outlined">location_on</span>
+    <span class="label-medium">Florianopolis, Brazil</span>
+</li>
+
+<li class="list-item">
+    <span class="material-symbols-outlined">work</span>
+    <span class="label-medium">Buscando...</span>
+</li>
+</ul>
+</div>
+
+<div>
+<div class="primary-tabs">
+<button class="tab-btn" data-tab-btn="project">
+<span class="tab-text title-small">Proyectos</span>
+<div class="state-layer"></div>
+</button>
+
+<button class="tab-btn" data-tab-btn="resume">
+<span class="tab-text title-small">Resumen</span>
+<div class="state-layer"></div>
+</button>
+
+<button class="tab-btn" data-tab-btn="contact">
+<span class="tab-text title-small">Contáctame</span>
+<div class="state-layer"></div>
+</button>
+</div>
+
+<section class="section tab-content" data-tab-content="project">
+<div class="container">
+<div class="project-list">
+
+<!-- NEXA -->
+<div class="card">
+<figure class="card-banner img-holder">
+<img src="./assets/images/WhatsApp Image 2025-08-29 at 15.00.37.jpeg" alt="" class="img-cover">
+</figure>
+
+<div class="card-content">
+<span class="label-large card-subtitle">Página web</span>
+<h3 class="title-large card-title">Nexa DigitalMarketing</h3>
+</div>
+
+<a href="https://nexa-tan-six.vercel.app/" class="state-layer"></a>
+
+<div class="card-overlay">
+<p class="project-description label-large">
+Pagina Professional de MarketingDigital, mi primer proyecto como Freelance.
+</p>
+
+<a href="https://github.com/NaZa123456/Nexa-Professional-DigitalMarketing" target="_blank" class="github-icon">
+<img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+</a>
+</div>
+</div>
+
+<div class="card">
+    <figure class="card-banner img-holder">
+        <img src="./assets/images/n8n.png" alt="n8n Surf Automation" class="img-cover">
+    </figure>
+
+    <div class="card-content">
+        <span class="label-large card-subtitle">Automation & Web Scraping</span>
+        <h3 class="title-large card-title">Surf Report Automator</h3>
+    </div>
+
+    <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" class="state-layer"></a>
+
+    <div class="card-overlay">
+        <p class="project-description label-large">
+            Sistema automático con n8n, Puppeteer y FFmpeg. Procesa datos de Windguru y cámaras en vivo para publicar Stories y Reels en Instagram.
+        </p>
+
+        <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" class="github-icon">
+            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+        </a>
+    </div>
+</div>
+
+<!-- WEATHER -->
+<div class="card">
+<figure class="card-banner img-holder">
+<img src="./assets/images/project-2.jpg" class="img-cover">
+</figure>
+
+<div class="card-content">
+<span class="label-large card-subtitle">Página web & App</span>
+<h3 class="title-large card-title">Weather-App</h3>
+</div>
+
+<a href="https://weather-app-psi-six-25.vercel.app" class="state-layer"></a>
+</div>
+
+<!-- TUBARAO -->
+<div class="card">
+<figure class="card-banner img-holder">
+<img src="./assets/images/project-3.jpg" class="img-cover">
+</figure>
+
+<div class="card-content">
+<span class="label-large card-subtitle">Página web & App</span>
+<h3 class="title-large card-title">Tubarao Films</h3>
+</div>
+
+<a href="https://hoy-si-17-1.onrender.com" class="state-layer"></a>
+</div>
+
+<!-- CRASHER GAMER -->
+<div class="card">
+<figure class="card-banner img-holder">
+    <video autoplay muted loop playsinline class="img-cover">
+        <source src="./assets/images/frontend - Brave 2026-05-06 15-59-35.mp4" type="video/mp4">
+    </video>
+</figure>
+
+<div class="card-content">
+<span class="label-large card-subtitle">Casino web</span>
+<h3 class="title-large card-title">Crasher Gamer</h3>
+</div>
+
+<a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" class="state-layer"></a>
+
+<div class="card-overlay">
+<p class="project-description label-large">
+Casino web visualmente simple pero con una lógica compleja detrás: sistema de apuestas en tiempo real, algoritmos de probabilidad y manejo de estado avanzado.
+</p>
+
+<a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" class="github-icon">
+<img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+</a>
+</div>
+</div>
+
+<!-- ECOMMERCE -->
+<div class="card">
+<figure class="card-banner img-holder">
+<img src="./assets/images/project-1.jpg" class="img-cover">
+</figure>
+
+<div class="card-content">
+<span class="label-large card-subtitle">Página web</span>
+<h3 class="title-large card-title">EcommercePatitas</h3>
+</div>
+
+<a href="https://ecommerce-mascotas.vercel.app" class="state-layer"></a>
+</div>
+
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+<div class="container">
+<p class="body-medium">Copyright 2025. Derechos reservados a Nazareno Araya!</p>
+</div>
+</footer>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>
