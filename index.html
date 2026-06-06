@@ -6,13 +6,245 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml"> 
+    <title>Nazareno Araya – Desenvolvedor FullStack</title>
+    <meta name="description" content="Portfolio de Nazareno Araya, Desenvolvedor Web FullStack baseado em Florianópolis. Especialista em React, Next.js, Node.js e mais.">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./css/styles.css">
+
+    <style>
+        /* Tech tags on project cards */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .tech-tag {
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(128, 128, 128, 0.15);
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            color: inherit;
+            opacity: 0.85;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .tech-tag img {
+            width: 12px;
+            height: 12px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        [data-theme="light"] .tech-icon--invert { filter: invert(1); }
+
+        /* Skills grid in Sobre Mim */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .skill-chip {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(128, 128, 128, 0.12);
+            border: 1px solid rgba(128, 128, 128, 0.25);
+            color: inherit;
+            opacity: 0.9;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .skill-icon {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        /* invert for white icons in dark mode so they're visible */
+        [data-theme="light"] .skill-icon--invert {
+            filter: invert(1);
+        }
+
+        /* Resume – CV cards */
+        .cv-section {
+            margin-bottom: 28px;
+        }
+        .cv-section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .cv-section-icon {
+            font-size: 18px;
+            opacity: 0.5;
+        }
+        .cv-section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            opacity: 0.45;
+        }
+        .cv-card {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: rgba(128,128,128,0.08);
+            border: 1px solid rgba(128,128,128,0.18);
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        .cv-card:hover {
+            background: rgba(128,128,128,0.13);
+        }
+        .cv-card-left {
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+        .cv-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(103,80,164,0.18);
+            border: 1px solid rgba(103,80,164,0.35);
+            color: var(--primary, #9d7fe3);
+            white-space: nowrap;
+        }
+        .cv-card-right {
+            flex: 1;
+        }
+        .cv-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 3px;
+        }
+        .cv-card-org {
+            font-size: 12px;
+            opacity: 0.55;
+            margin: 0 0 6px;
+        }
+        .cv-card-desc {
+            font-size: 13px;
+            opacity: 0.75;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Contact form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(128,128,128,0.06);
+            border: 1px solid rgba(128,128,128,0.18);
+            border-radius: 16px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group label {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+        .form-group input,
+        .form-group textarea {
+            background: rgba(128,128,128,0.08);
+            border: 1px solid rgba(128,128,128,0.25);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-family: inherit;
+            color: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: vertical;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary, #6750A4);
+        }
+        .form-submit {
+            align-self: flex-start;
+            padding: 10px 24px;
+            border-radius: 999px;
+            background: #6750A4;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, opacity 0.2s;
+        }
+        .form-submit:hover { background: #7965AF; }
+
+        /* Education cards (chip style) */
+        .edu-card {
+            background: rgba(128, 128, 128, 0.12);
+            border: 1px solid rgba(128, 128, 128, 0.25);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .edu-card .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .edu-card .timeline-subtitle {
+            font-size: 13px;
+            opacity: 0.65;
+            margin: 0;
+        }
+        .edu-card .timeline-date {
+            font-size: 12px;
+            opacity: 0.45;
+            margin: 0;
+        }
+
+        /* Social links in header */
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-right: 4px;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .social-link:hover { opacity: 1; }
+        .social-link svg { fill: currentColor; }
+    </style>
 </head>
 <body>
 
@@ -22,11 +254,28 @@
         <img src="./assets/images/Logo_light.png" alt="Devfolio" width="145" height="32" class="light">
     </a>
 
-    <button class="icon-btn- theme-btn" data-theme-btn>
-        <span class="material-symbols-outlined dark" aria-hidden="true">dark_mode</span>
-        <span class="material-symbols-outlined light" aria-hidden="true">light_mode</span>
-        <div class="state-layer"></div>
-    </button>
+    <div style="display:flex;align-items:center;gap:4px;">
+        <div class="social-links">
+            <!-- GitHub -->
+            <a href="https://github.com/NaZa123456" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Nazareno Araya">
+                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.468-2.382 1.235-3.22-.123-.304-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.872.12 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/nazareno-araya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn de Nazareno Araya">
+                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+        </div>
+
+        <button class="icon-btn- theme-btn" data-theme-btn>
+            <span class="material-symbols-outlined dark" aria-hidden="true">dark_mode</span>
+            <span class="material-symbols-outlined light" aria-hidden="true">light_mode</span>
+            <div class="state-layer"></div>
+        </button>
+    </div>
 </header>
 
 <main>
@@ -36,7 +285,7 @@
 <div class="container">
 
 <figure class="hero-banner img-holder" style="--width: 240; --height:240;">
-    <img src="./assets/WhatsApp Image 2025-02-25 at 12.44.22.jpeg" width="240" height="240" alt="" class="img-cover">
+    <img src="./assets/foto-perfil.jpeg" width="240" height="240" alt="Foto de perfil de Nazareno Araya" class="img-cover">
 </figure>
 
 <div class="hero-content">
@@ -65,6 +314,18 @@
             <span class="label-large">Baixar CV</span>
             <div class="state-layer"></div>
         </a>
+
+        <a href="https://www.linkedin.com/in/nazareno-araya/" target="_blank" rel="noopener noreferrer" class="chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="label-large">LinkedIn</span>
+            <div class="state-layer"></div>
+        </a>
+
+        <a href="https://github.com/NaZa123456/" target="_blank" rel="noopener noreferrer" class="chip">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.468-2.382 1.235-3.22-.123-.304-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.872.12 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.807 5.624-5.48 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span class="label-large">GitHub</span>
+            <div class="state-layer"></div>
+        </a>
     </div>
 </div>
 </div>
@@ -75,17 +336,41 @@
 
     <h2 class="card-title title-medium">Sobre Mim</h2>
     <p class="body-medium card-text">
-        Desenvolvedor web apaixonado pela criação de interfaces modernas, funcionais e com boa experiência de usuário. Tenho experiência prática com HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind, Bootstrap, Radix UI, Node.js, Bun, Python, REST APIs, MongoDB, PostgreSQL, Firebase, Docker, React Native, Git, GitHub e Vercel, aplicadas em projetos pessoais que me permitiram enfrentar desafios reais de desenvolvimento. Gosto de trabalhar em equipe, contribuir com ideias criativas e estou sempre em busca de aprender novas tecnologias e evoluir como desenvolvedor.
+        Desenvolvedor web apaixonado pela criação de interfaces modernas, funcionais e com boa experiência de usuário. Gosto de trabalhar em equipe, contribuir com ideias criativas e estou sempre em busca de aprender novas tecnologias e evoluir como desenvolvedor.
     </p>
 
-    <ul class="about-list">
+    <div class="skills-grid">
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/html5/E34F26" class="skill-icon" alt="">HTML</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/css/1572B6" class="skill-icon" alt="">CSS</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="skill-icon" alt="">JavaScript</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/typescript/3178C6" class="skill-icon" alt="">TypeScript</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/react/61DAFB" class="skill-icon" alt="">React</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/nextdotjs/ffffff" class="skill-icon skill-icon--invert" alt="">Next.js</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="skill-icon" alt="">Tailwind</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" class="skill-icon" alt="">Bootstrap</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/radixui/ffffff" class="skill-icon skill-icon--invert" alt="">Radix UI</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/nodedotjs/339933" class="skill-icon" alt="">Node.js</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/bun/FBF0DF" class="skill-icon" alt="">Bun</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/python/3776AB" class="skill-icon" alt="">Python</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/fastapi/009688" class="skill-icon" alt="">REST APIs</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/mongodb/47A248" class="skill-icon" alt="">MongoDB</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="skill-icon" alt="">PostgreSQL</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/firebase/FFCA28" class="skill-icon" alt="">Firebase</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/docker/2496ED" class="skill-icon" alt="">Docker</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/react/61DAFB" class="skill-icon" alt="">React Native</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/git/F05032" class="skill-icon" alt="">Git</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/github/ffffff" class="skill-icon skill-icon--invert" alt="">GitHub</span>
+        <span class="skill-chip"><img src="https://cdn.simpleicons.org/vercel/ffffff" class="skill-icon skill-icon--invert" alt="">Vercel</span>
+    </div>
+
+    <ul class="about-list" style="margin-top: 20px;">
         <li class="list-item">
             <span class="material-symbols-outlined">location_on</span>
             <span class="label-medium">Florianópolis, Brasil</span>
         </li>
         <li class="list-item">
             <span class="material-symbols-outlined">work</span>
-            <span class="label-medium">Buscando oportunidades...</span>
+            <span class="label-medium">À procura de oportunidades...</span>
         </li>
     </ul>
 </div>
@@ -108,6 +393,7 @@
     </button>
 </div>
 
+<!-- ===== PROJETOS ===== -->
 <section class="section tab-content" data-tab-content="project">
 <div class="container">
 <div class="project-list">
@@ -115,19 +401,24 @@
 <!-- NEXA -->
 <div class="card">
     <figure class="card-banner img-holder">
-        <img src="./assets/images/WhatsApp Image 2025-08-29 at 15.00.37.jpeg" alt="" class="img-cover">
+        <img src="./assets/images/WhatsApp Image 2025-08-29 at 15.00.37.jpeg" alt="Preview do site Nexa Digital Marketing" class="img-cover">
     </figure>
     <div class="card-content">
         <span class="label-large card-subtitle">Página web</span>
         <h3 class="title-large card-title">Nexa DigitalMarketing</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="">HTML</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/css/1572B6" alt="">CSS</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="">JavaScript</span>
+        </div>
     </div>
-    <a href="https://nexa-main.vercel.app/index.html" class="state-layer"></a>
+    <a href="https://nexa-main.vercel.app/index.html" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Página profissional de Marketing Digital desenvolvida como primeiro projeto freelance. Criada com foco em design moderno, responsividade e experiência do usuário.
         </p>
-        <a href="https://github.com/NaZa123456/Nexa-Professional-DigitalMarketing" target="_blank" class="github-icon">
-            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+        <a href="https://github.com/NaZa123456/Nexa-Professional-DigitalMarketing" target="_blank" rel="noopener noreferrer" class="github-icon">
+            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon" alt="GitHub">
         </a>
     </div>
 </div>
@@ -135,19 +426,25 @@
 <!-- SURF AUTOMATOR -->
 <div class="card">
     <figure class="card-banner img-holder">
-        <img src="./assets/images/n8n.png" alt="n8n Surf Automation" class="img-cover">
+        <img src="./assets/images/n8n.png" alt="Interface do n8n no projeto Surf Report Automator" class="img-cover">
     </figure>
     <div class="card-content">
         <span class="label-large card-subtitle">Automação & Web Scraping</span>
         <h3 class="title-large card-title">Surf Report Automator</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="">n8n</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/puppeteer/40B5A4" alt="">Puppeteer</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/ffmpeg/007808" alt="">FFmpeg</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/meta/0082FB" alt="">Meta API</span>
+        </div>
     </div>
-    <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" class="state-layer"></a>
+    <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Sistema automático com n8n, Puppeteer e FFmpeg. Processa dados do Windguru e câmeras ao vivo para publicar Stories e Reels no Instagram automaticamente.
         </p>
-        <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" class="github-icon">
-            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+        <a href="https://github.com/NaZa123456/n8n_automaticacion_redes" target="_blank" rel="noopener noreferrer" class="github-icon">
+            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon" alt="GitHub">
         </a>
     </div>
 </div>
@@ -155,13 +452,19 @@
 <!-- WEATHER -->
 <div class="card">
     <figure class="card-banner img-holder">
-        <img src="./assets/images/project-2.jpg" class="img-cover">
+        <img src="./assets/images/project-2.jpg" alt="Preview da Weather App" class="img-cover">
     </figure>
     <div class="card-content">
         <span class="label-large card-subtitle">Página web & App</span>
         <h3 class="title-large card-title">Weather App</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React Native</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/css/1572B6" alt="">CSS</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="">REST API</span>
+        </div>
     </div>
-    <a href="https://weather-app-psi-six-25.vercel.app" class="state-layer"></a>
+    <a href="https://weather-app-psi-six-25.vercel.app" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Aplicação que consome uma API de clima em tempo real para exibir previsões dinâmicas por cidade. Desenvolvida com React e interface responsiva.
@@ -172,13 +475,17 @@
 <!-- TUBARAO -->
 <div class="card">
     <figure class="card-banner img-holder">
-        <img src="./assets/images/project-3.jpg" class="img-cover">
+        <img src="./assets/images/project-3.jpg" alt="Preview da plataforma Tubarão Films" class="img-cover">
     </figure>
     <div class="card-content">
         <span class="label-large card-subtitle">Página web & App</span>
         <h3 class="title-large card-title">Tubarão Films</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="">Node.js</span>
+        </div>
     </div>
-    <a href="https://hoy-si-17-1.onrender.com" class="state-layer"></a>
+    <a href="https://hoy-si-17-1.onrender.com" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Plataforma web para catálogo e divulgação de filmes, com navegação por categorias e design cinematográfico. Desenvolvida com React e backend próprio.
@@ -196,14 +503,22 @@
     <div class="card-content">
         <span class="label-large card-subtitle">Casino web</span>
         <h3 class="title-large card-title">Crasher Gamer</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="">JavaScript</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="">TypeScript</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/bun/FBF0DF" alt="">Bun</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/radixui/ffffff" class="tech-icon--invert" alt="">Radix UI</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="">Docker</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="">SQL</span>
+        </div>
     </div>
-    <a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" class="state-layer"></a>
+    <a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Casino web visualmente clean com lógica complexa por trás: sistema de apostas em tempo real, algoritmos de probabilidade e gerenciamento de estado avançado.
         </p>
-        <a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" class="github-icon">
-            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon">
+        <a href="https://github.com/NaZa123456/Jungle_Gaming_Challengue_NazarenoAraya" target="_blank" rel="noopener noreferrer" class="github-icon">
+            <img src="./assets/images/github.svg" width="28" height="28" loading="lazy" class="icon" alt="GitHub">
         </a>
     </div>
 </div>
@@ -211,13 +526,17 @@
 <!-- ECOMMERCE -->
 <div class="card">
     <figure class="card-banner img-holder">
-        <img src="./assets/images/project-1.jpg" class="img-cover">
+        <img src="./assets/images/project-1.jpg" alt="Preview do Ecommerce Patitas" class="img-cover">
     </figure>
     <div class="card-content">
         <span class="label-large card-subtitle">Página web</span>
         <h3 class="title-large card-title">Ecommerce Patitas</h3>
+        <div class="tech-tags">
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="">React</span>
+            <span class="tech-tag"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="">Firebase</span>
+        </div>
     </div>
-    <a href="https://ecommerce-mascotas.vercel.app" class="state-layer"></a>
+    <a href="https://ecommerce-mascotas.vercel.app" target="_blank" rel="noopener noreferrer" class="state-layer"></a>
     <div class="card-overlay">
         <p class="project-description label-large">
             Loja virtual de produtos para pets com carrinho de compras, catálogo de produtos e interface amigável. Desenvolvida com React e Firebase.
@@ -225,6 +544,91 @@
     </div>
 </div>
 
+</div>
+</div>
+</section>
+
+<!-- ===== RESUMO ===== -->
+<section class="section tab-content" data-tab-content="resume">
+<div class="container">
+
+    <!-- EXPERIÊNCIA -->
+    <div class="cv-section">
+        <div class="cv-section-header">
+            <span class="material-symbols-outlined cv-section-icon">work</span>
+            <span class="cv-section-label">Experiência</span>
+        </div>
+
+        <div class="cv-card">
+            <div class="cv-card-left">
+                <span class="cv-badge">2024 – Presente</span>
+            </div>
+            <div class="cv-card-right">
+                <p class="cv-card-title">Desenvolvedor FullStack Freelance</p>
+                <p class="cv-card-org">Autônomo</p>
+                <p class="cv-card-desc">Desenvolvimento de sites e aplicações web para clientes reais, utilizando React, Next.js e Node.js. Inclui projeto freelance para Nexa Digital Marketing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCAÇÃO -->
+    <div class="cv-section">
+        <div class="cv-section-header">
+            <span class="material-symbols-outlined cv-section-icon">school</span>
+            <span class="cv-section-label">Educação</span>
+        </div>
+
+        <div class="cv-card">
+            <div class="cv-card-left">
+                <span class="cv-badge">2023 – 2025</span>
+            </div>
+            <div class="cv-card-right">
+                <p class="cv-card-title">FullStack Developer</p>
+                <p class="cv-card-org">NUCBA</p>
+            </div>
+        </div>
+
+        <div class="cv-card">
+            <div class="cv-card-left">
+                <span class="cv-badge">2024 – 2025</span>
+            </div>
+            <div class="cv-card-right">
+                <p class="cv-card-title">FrontEnd Specialization</p>
+                <p class="cv-card-org">Udemy</p>
+            </div>
+        </div>
+
+        <div class="cv-card">
+            <div class="cv-card-left">
+                <span class="cv-badge">Em curso</span>
+            </div>
+            <div class="cv-card-right">
+                <p class="cv-card-title">Técnico em Informática e Português</p>
+                <p class="cv-card-org">UFSC</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section class="section tab-content" data-tab-content="contact">
+<div class="container">
+<div class="contact-form">
+    <div class="form-group">
+        <label for="contact-name">Nome</label>
+        <input type="text" id="contact-name" name="name" placeholder="Seu nome" autocomplete="name">
+    </div>
+    <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" placeholder="seu@email.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+        <label for="contact-message">Mensagem</label>
+        <textarea id="contact-message" name="message" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+    </div>
+    <button class="form-submit" onclick="sendContactForm()">Enviar mensagem</button>
 </div>
 </div>
 </section>
@@ -241,6 +645,22 @@
 </footer>
 
 <script src="./js/script.js"></script>
+<script>
+function sendContactForm() {
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+
+    if (!name || !email || !message) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    const subject = encodeURIComponent('Contato pelo Portfolio – ' + name);
+    const body = encodeURIComponent('Nome: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:nazarenoarayabr@gmail.com?subject=' + subject + '&body=' + body;
+}
+</script>
 
 </body>
 </html>
