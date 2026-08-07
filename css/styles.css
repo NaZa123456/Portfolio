@@ -638,6 +638,7 @@ body::before {
     
     .card-banner {
         border-radius: var(--shape-corner-medium);
+        aspect-ratio: 16 / 10;
     }
     
     .card-content {
@@ -1117,14 +1118,3 @@ body::before {
 
         
     }
-
-    
-
-
-
-
-
-
-
-
-
